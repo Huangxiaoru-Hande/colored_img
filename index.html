@@ -198,7 +198,7 @@
 	    width: 1180px;
 	    height: 400px;
 	    background-color: rgba(255, 255, 255, 0.0);
-	    padding: 50px 100px;
+	    padding: 50px 0px;
 	    position: relative;
 	}
 	.colored_img input{
@@ -223,7 +223,7 @@
 
 	.colored_img img{
 	    margin-top: 50px;
-	    margin-left: 100px;
+	    margin-left: 124px;
 	    width: 400px;
 	    height: 300px;
 	    float: left;
@@ -234,7 +234,7 @@
 		color: rgb(120, 108, 114);
 	    position:absolute;
 	    top: 480px;
-	    left: 300px;
+	    left: 236px;
 	    height: 50px;
 	    width: 200px;
 	    background-color: white;
@@ -250,7 +250,7 @@
 		color: rgb(120, 108, 114);
 	    position:absolute;
 	    top: 480px;
-	    left: 800px;
+	    left: 766px;
 	    height: 50px;
 	    width: 200px;
 	    background-color: white;
@@ -302,13 +302,13 @@
 				<div class="bottom">示 例 一</div>
 			</div>
 			<div id="img_ex2">
-				<div class="gary"><img src="img/04.jpg"></div>
-				<div id="img_2"><img src="img/03.jpg"></div>
+				<div class="gary"><img src="img/ttt3_rgb.jpg"></div>
+				<div id="img_2"><img src="img/ttt3.jpg"></div>
 				<div class="bottom">示 例 二</div>
 			</div>
 			<div id="img_ex3">
-				<div class="gary"><img src="img/04.jpg"></div>
-				<div id="img_3"><img src="img/03.jpg"></div>
+				<div class="gary"><img src="img/ttt2_rgb.jpg"></div>
+				<div id="img_3"><img src="img/ttt2.jpg"></div>
 				<div class="bottom">示 例 三</div>
 			</div> 
 		</div>
@@ -329,9 +329,9 @@
 		<div id="colored">
 	 		<div class="colored_img">
 	 			<input type="file" name="src" id='file'>
-	            <button id="button">点 我 选 择 图 片！！</button>
-	            <img src="img/04.jpg">  
-	            <img src="img/03.jpg" class="img_r">
+	            <button id="button"> &nbsp;&nbsp;&nbsp;&nbsp;点 我 选 择 图 片！！</button>
+	            <img src="img/ttt1_rgb.jpg" id="gray">  
+	            <img src="img/ttt1.jpg" class="img_r" id="rgb">
 
 	            <div class="before">原 始 图 片</div> 
 	            <div class="after">彩 色 图 片</div>
@@ -341,7 +341,7 @@
 	
 	<div class="end">
 		<div class="end_center">
-			<p>河北师范大 软件学院 软件工程专业2017级学生</p>
+			<p>河北师范大学 软件学院 软件工程专业2017级学生</p>
 			<p>人工智能方向 项目实训一</p>
 			<p>AI项目实训大组成员：宋子豪 付春江 高新月 张引硕 黄瑞如</p>
 		</div>
@@ -353,6 +353,27 @@
 		button.onclick = function(){
 			file.click();
 		}
+
+		function ProcessFile(e) {
+	        var file = document.getElementById('file').files[0];
+	        if (file) {
+	            var reader = new FileReader();
+	            reader.onload = function (event) {
+	                var txt = event.target.result;
+	                document.getElementById('gray').src=txt
+	                document.getElementById('rgb').src=txt
+	                // console.log(txt)//base64
+	            };
+	        }
+	        reader.readAsDataURL(file);
+	    }
+
+	    function contentLoaded() {
+	        document.getElementById('file').addEventListener('change',
+	            ProcessFile, false);
+	    }
+	    window.addEventListener("DOMContentLoaded", contentLoaded, false);
+
 	</script>
  	<script type="text/javascript">
 		var img_ex1 = document.getElementById('img_ex1');
